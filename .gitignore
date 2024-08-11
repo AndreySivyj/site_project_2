@@ -88,8 +88,8 @@ local_settings.py
 
 *.env
 db.sqlite3
-site_project2/postgresql.txt
 *postgresql.txt
 
 venv/
-site_project2/media/
+bookmarks/media/
+media/
