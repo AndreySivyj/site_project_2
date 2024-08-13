@@ -136,3 +136,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MEDIA_URL = 'media/' # это базовый URL-адрес, используемый для раздачи медиафайлов, закачанных пользователями на сайт
 MEDIA_ROOT = BASE_DIR / 'media' # это локальный путь, где они находятся
+
+
+AUTHENTICATION_BACKENDS = [
+'django.contrib.auth.backends.ModelBackend',
+'account.authentication.EmailAuthBackend', # вставляем наш собственный бэкенд аутентификации с применением электронной почты EmailAuthBackend
+]
