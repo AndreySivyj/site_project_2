@@ -93,3 +93,5 @@ db.sqlite3
 venv/
 bookmarks/media/
 media/
+*.crt
+*.key
