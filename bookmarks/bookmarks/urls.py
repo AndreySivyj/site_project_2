@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.urls')),
     path('social-auth/', include('social_django.urls', namespace='social')),
+    path('images/', include('images.urls', namespace='images')),
 ]
 
 # вспомогательная функция static(), чтобы раздавать медиафайлы с по­мощью сервера разработки во время разработки (когда DEBUG равен True)

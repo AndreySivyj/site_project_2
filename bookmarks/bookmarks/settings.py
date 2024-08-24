@@ -21,7 +21,7 @@ ALLOWED_HOSTS = [config("HOST_NAME"), config("HOST_IP"), '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'account.apps.AccountConfig',
+    'account.apps.AccountConfig',    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',
     'django_extensions',
+    'images.apps.ImagesConfig',
 ]
 
 MIDDLEWARE = [
@@ -137,7 +138,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 MEDIA_URL = 'media/' # это базовый URL-адрес, используемый для раздачи медиафайлов, закачанных пользователями на сайт
-MEDIA_ROOT = BASE_DIR / 'media' # это локальный путь, где они находятся
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # это локальный путь, где они находятся
 
 
 AUTHENTICATION_BACKENDS = [
@@ -162,3 +163,9 @@ SOCIAL_AUTH_PIPELINE = [
 'social_core.pipeline.social_auth.load_extra_data',
 'social_core.pipeline.user.user_details',
 ]
+
+
+if DEBUG:
+    import mimetypes
+    mimetypes.add_type('application/javascript', '.js', True)
+    mimetypes.add_type('text/css', '.css', True)
